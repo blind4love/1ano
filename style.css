@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a001a, #0d0d0d 80%), #0d0d0d;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+  scrollbar-gutter: stable; /* Mantém a barra de rolagem estável */
+}
+
+.media-player {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.media-player img {
+  max-width: 250px; /* antes era 350px */
+  width: 80%; /* antes era 90% */
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff1493;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.container h1 {
+  font-size: 2em;
+  color: #ff69b4;
+  margin: 20px 0;
+}
+
+.carrossel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  min-height: 400px; /* Evita pulo no layout */
+}
+
+.carrossel img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 25px pink;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  animation: brilhar 2s infinite ease-in-out;
+}
+
+.carrossel img:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  background-color: pink;
+  border: none;
+  color: black;
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  background-color: #ffb6c1;
+}
+
+.mensagem {
+  margin-top: 20px;
+  padding: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mensagem p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #ff69b4;
+  line-height: 1.6em;
+}
+
+.coracao {
+  position: absolute;
+  top: 100vh;
+  animation: subir 5s linear forwards;
+  pointer-events: none;
+  opacity: 0.8;
+  color: #ff4d6d;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes brilhar {
+  0%, 100% {
+    box-shadow: 0 0 25px pink;
+  }
+  50% {
+    box-shadow: 0 0 50px #ff1493;
+  }
+}
+
+.frase-amo {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: pink;
+  font-family: 'Dancing Script', cursive;
+  font-size: 40px; /* diminui um pouco para caber melhor */
+  font-weight: bold;
+  text-shadow: 0 0 5px pink;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 80%; /* Limita largura para não ficar muito esticada */
+  text-align: center; /* Centraliza o texto */
+}
+.coracoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 50;
+}
+/* Ajustes para celular */
+@media (max-width: 600px) {
+  .media-player img {
+    max-width: 180px;
+    width: 90%;
+  }
+
+  .frase-amo {
+    font-size: 18px;
+    max-width: 90%;
+  }
+
+  .carousel img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .carousel .setas {
+    font-size: 20px; /* ou ajuste conforme o tamanho das setas */
+  }
+}
